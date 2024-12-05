@@ -11,7 +11,7 @@
 //     });
 // });
 
-// // Delay to ensure changes are reflected
+// // // Delay to ensure changes are reflected
 // setTimeout(() => {
 //     // Get the container's HTML
 //     const updatedHTML = document.querySelector('.container').outerHTML;
@@ -28,9 +28,11 @@
 // }, 10000);
 
 
-async function scrap(url) {
+async function scrap(rowNo,sectionId) {
+    const section = document.getElementById(sectionId);
+    const url = section.querySelector('.url-input').value;
     const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
-
+    
     try {
         // Fetch HTML content asynchronously
         const response = await fetch(proxyUrl);
@@ -59,9 +61,9 @@ async function scrap(url) {
 
             // Extract the rows from the table
             const rows = careerAveragesTable.querySelectorAll('tr');
-
+            console.log(rows)
             // The second row (filtered data) will be at index 2 (index 1 is the header row)
-            const filteredRow = rows[2];  // This is the "filtered" row
+            const filteredRow = rows[rowNo];  // This is the "filtered" row
 
             if (filteredRow) {
                 // Extract the columns from the filtered row
@@ -78,41 +80,51 @@ async function scrap(url) {
                 const fifties = columns[11].innerText.trim();
                 const hundreds = columns[10].innerText.trim();
 
+
                 // Populate the input fields dynamically
                 if (debutYear) {
-                    document.getElementById("debut").value = debutYear;
+                    try {
+                        section.querySelector("#debut").value = debutYear; 
+                    } catch (error) {
+                        console.log(".")
+                    }
+                    
                 }
 
                 if (lastPlayedYear) {
-                    document.getElementById("last-played").value = lastPlayedYear;
+                    try {
+                        section.querySelector("#last-played").value = lastPlayedYear;
+                    } catch (error) {
+                        console.log('..')
+                    }
                 }
 
                 if (matches) {
-                    document.getElementById("matches").value = matches;
+                    section.querySelector("#matches").value = matches;
                 }
 
                 if (innings) {
-                    document.getElementById("innings").value = innings;
+                    section.querySelector("#innings").value = innings;
                 }
 
                 if (runs) {
-                    document.getElementById("runs").value = runs;
+                    section.querySelector("#runs").value = runs;
                 }
 
                 if (average) {
-                    document.getElementById("average").value = average;
+                    section.querySelector("#average").value = average;
                 }
 
                 if (strikeRate) {
-                    document.getElementById("strikeRate").value = strikeRate;
+                    section.querySelector("#strikeRate").value = strikeRate;
                 }
 
                 if (fifties) {
-                    document.getElementById("fifties").value = fifties;
+                    section.querySelector("#fifties").value = fifties;
                 }
 
                 if (hundreds) {
-                    document.getElementById("hundreds").value = hundreds;
+                    section.querySelector("#hundreds").value = hundreds;
                 }
 
             } else {
