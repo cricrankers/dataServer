@@ -149,7 +149,6 @@
     "CA Pujara": {"id":32540},
     "GA Hick": {"id":14187},
     "GR Marsh": {"id":6499},
-    "DM Bravo": {"id":277472},
     "DG Bradman": {"id":4188},
     "DL Vettori": {"id":38710},
     "L Hutton": {"id":14334},
@@ -226,7 +225,6 @@
     "AL Logie": {"id":52347},
     "PJL Dujon": {"id":51657},
     "WM Lawry": {"id":6270},
-    "AI Kallicharran": {"id":52285},
     "JC Adams": {"id":51100},
     "Salman Butt": {"id":42683},
     "T Taibu": {"id":55805},
@@ -238,6 +236,7 @@
     "HH Dippenaar": {"id":44708},
     "AD Hales": {"id":249866},
     "Ahmed Shehzad": {"id":259410},
+    
     "RR Pant": {"id":931581},
     "Shubman Gill": {"id":1070173},
     "M Vijay": {"id":237095},
